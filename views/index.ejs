@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 32px;
+            text-decoration: underline;
+        }
+
+       
+    </style>
+</head>
+
+<body style="background-color:rgb(253, 252, 245)">
+    <div class="container">
+        <h1>URL SHORTNER</h1>
+        <form action="/shortUrls" method="POST" class="my-4 form-inline">
+            <label for="fullUrl" class="sr-only">Url</label>
+            <input required placeholder="URL..." type="url" name="fullUrl" id="fullUrl" class="form-control col mr-2">
+            <button type="submit" class="btn btn-success">Short It..</button>
+        </form>
+
+        <table class="table table-responsive table-striped ">
+            <thead>
+                <tr>
+                    <th>Full Url</th>
+                    <th>Short Url</th>
+                    <th>Clicks</th>
+                </tr>
+            <tbody>
+                <% shortUrls.forEach(shortUrl=> { %>
+                    <tr>
+                        <td><a href="<%= shortUrl.full %>">
+                                <%= shortUrl.full %>
+                            </a></td>
+
+                        <td><a href="<%= shortUrl.short %>">
+                                <%= shortUrl.short %>
+                            </a></td>
+                        <td>
+                            <%= shortUrl.clicks %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+            </thead>
+        </table>
+    </div>
+   
+        
+    
+
+</body>
+
+</html>
